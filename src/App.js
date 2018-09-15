@@ -76,7 +76,7 @@ class App extends Component {
           />
           <button onClick={()=> this.addItem(text) }>Add Todo</button>
         </div>
-        <div className='display'>
+        <div className='display'>  
           <ul>
             {itemsOnBoard.map( item => (
               <li key={item.id} className={activeTab}>
