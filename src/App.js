@@ -49,7 +49,6 @@ class App extends Component {
   
   updateTag = (e) => {
     const activeTab = e.target.value
-    console.log(e.target.value)
     this.setState({ activeTab })
   }
 
