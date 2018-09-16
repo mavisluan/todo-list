@@ -13,6 +13,7 @@ class App extends Component {
     const items = localItems ? localItems : []
     this.setState({ items })
   }
+
   addItem = (text) => {
     if (text) {
       const item = this.itemCreator(text)
@@ -33,11 +34,12 @@ class App extends Component {
     this.setState({ text: e.target.value})
   )
   
-  removeItems = (id) => {
+  removeItem = (id) => {
     const items = this.state.items.filter( item => item.id !== id)
     localStorage.setItem('localItems', JSON.stringify(items))
     this.setState({ items})
   }
+
   markCompleted = (id) => {
     const items = this.state.items.map(item => {
       (item.id === id ) && (item.completed = !item.completed)
@@ -47,7 +49,7 @@ class App extends Component {
     this.setState({ items })
   }
   
-  updateTag = (e) => {
+  updateTab = (e) => {
     const activeTab = e.target.value
     this.setState({ activeTab })
   }
@@ -83,7 +85,7 @@ class App extends Component {
                 <span onClick={() => this.markCompleted(item.id)}>   
                   {item.text}
                 </span>
-                <button className='remove' onClick={() => this.removeItems(item.id)}>
+                <button className='remove' onClick={() => this.removeItem(item.id)}>
                   <i className="fas fa-times"></i>
                 </button>
               </li>
@@ -95,19 +97,19 @@ class App extends Component {
               <button 
                 className={`${activeTab==='all'&& 'selected'}`} 
                 value='all' 
-                onClick={this.updateTag} >
+                onClick={this.updateTab} >
                 All
               </button>
               <button 
                 className={`${activeTab==='active'&& 'selected'}`} 
                 value='active' 
-                onClick={this.updateTag}>
+                onClick={this.updateTab}>
                 Active
               </button>
               <button 
                 className={`${activeTab==='completed'&& 'selected'}`} 
                 value='completed' 
-                onClick={this.updateTag}>
+                onClick={this.updateTab}>
                 Completed
               </button>
         </div>
