@@ -5,58 +5,10 @@ import { addItem, markCompleted, removeItem } from './actions.js/todos'
 import { updateTab} from './actions.js/activeTab'
 
 class App extends Component {
-  state = {
-    items: [],
-    activeTab: 'all'
-  }
-
-  // componentDidMount() {
-  //   const localItems = JSON.parse(localStorage.getItem('localItems'))
-  //   const items = localItems ? localItems : []
-  //   this.setState({ items })
-  // }
-
-  // addItem = (text) => {
-  //   if (text) {
-  //     const item = this.itemCreator(text)
-  //     const items = [...this.state.items, item]
-  //     localStorage.setItem('localItems', JSON.stringify(items))
-  //     this.input.value = ''
-  //     return this.setState({ items, text: '' })
-  //   }  
-  // } 
-
-  // itemCreator = ( text ) => {
-  //   const length = this.state.items.length
-  //   const id = (length === 0) ? 0 : length
-  //   let completed = false
-  //   return ({ id, text, completed })
-  // }
-
-  // removeItem = (id) => {
-  //   const items = this.state.items.filter( item => item.id !== id)
-  //   localStorage.setItem('localItems', JSON.stringify(items))
-  //   this.setState({ items})
-  // }
-
-  // markCompleted = (id) => {
-  //   const items = this.state.items.map(item => {
-  //     (item.id === id ) && (item.completed = !item.completed)
-  //     return item
-  //   })
-  //   localStorage.setItem('localItems', JSON.stringify(items))
-  //   this.setState({ items })
-  // }
-  
-  // updateTab = (e) => {
-  //   const activeTab = e.target.value
-  //   this.setState({ activeTab })
-  // }
 
   render() {
-    console.log('props', this.props)
-    const { items, activeTab, updateTab } = this.props
-    
+    const { items, activeTab, updateTab, addItem, markCompleted, removeItem } = this.props
+
     let itemsOnBoard = []
     if (activeTab === 'all' ) {
       itemsOnBoard = items
@@ -66,7 +18,6 @@ class App extends Component {
     } 
     if (activeTab === 'active') {
       itemsOnBoard = items.filter(item => (item.completed === false))
-      
     }
     
     return (
@@ -78,7 +29,7 @@ class App extends Component {
           />
           <button 
             onClick={()=> {
-              this.props.addItem(this.input.value) 
+              addItem(this.input.value) 
               this.input.value =''
             }}>
             Add Todo
@@ -88,10 +39,10 @@ class App extends Component {
           <ul>
             {itemsOnBoard.map( item => (
               <li key={item.id} className={item.completed ? 'completed': null}>
-                <span onClick={() => this.props.markCompleted(item.id)}>
+                <span onClick={() => markCompleted(item.id)}>
                  {item.text}
                 </span>
-                <button className='remove' onClick={() => this.props.removeItem(item.id)}>
+                <button className='remove' onClick={() => removeItem(item.id)}>
                   <i className="fas fa-times"></i>
                 </button>
               </li>
