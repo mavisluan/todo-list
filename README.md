@@ -14,14 +14,7 @@ Users will be able to
 
 # Project Screenshots
 
-## Todo list by all
 ![](src/icons/1.png )
-
-## Todo list by active
-![](src/icons/2.png )
-
-## Todo list by completed
-![](src/icons/3.png )
 
 
 # Installation Instructions
