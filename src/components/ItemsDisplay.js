@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { markCompleted, removeItem } from './actions.js'
+import { markCompleted, removeItem } from '../actions.js'
 
 const ItemsDisplay = ({ items, activeTab, markCompleted, removeItem }) => {
     let itemsOnBoard = []

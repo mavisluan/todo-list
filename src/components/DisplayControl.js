@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateTab } from './actions.js'
+import { updateTab } from '../actions.js'
 
 const DisplayControl = ({ activeTab, updateTab }) => (
     <div className='board-control'>

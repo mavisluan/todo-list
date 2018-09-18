@@ -1,5 +1,5 @@
 import React from 'react'
-import { addItem } from './actions.js/index'
+import { addItem } from '../actions.js'
 import { connect } from 'react-redux'
 
 const ItemCreator = ({ addItem }) => (
