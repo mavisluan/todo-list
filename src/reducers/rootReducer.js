@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import todos_reducer from './todos_reducer'
+import items_reducer from './items_reducer'
 import activeTab_reducer  from './activeTab_reducer'
 
 const rootReducer = combineReducers({
-    items: todos_reducer,
+    items: items_reducer,
     activeTab: activeTab_reducer
 })
 

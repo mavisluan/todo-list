@@ -1,6 +1,6 @@
-import { ADD_ITEM , MARK_COMPLETED, REMOVE_ITEM } from '../actions.js/todos'
+import { ADD_ITEM , MARK_COMPLETED, REMOVE_ITEM } from '../actions.js'
 
-const todos_reducer = (state = [], action ) => {
+const items_reducer = (state = [], action ) => {
     const { type, text, id } = action
     switch(type) {
         case ADD_ITEM: 
@@ -11,10 +11,9 @@ const todos_reducer = (state = [], action ) => {
                     let completed = false
                     return ({ id, text, completed })
                  }
-                const item = itemCreator(text)
-                return [...state, item]
+                return [...state, itemCreator(text)]
             } else {
-                return
+                return state
             }  
         case MARK_COMPLETED:
             return state.map(item => {
@@ -28,4 +27,4 @@ const todos_reducer = (state = [], action ) => {
     }
 }
 
-export default todos_reducer
+export default items_reducer

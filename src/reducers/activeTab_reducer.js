@@ -1,4 +1,4 @@
-import { UPDATETAB } from '../actions.js/activeTab'
+import { UPDATETAB } from '../actions.js/index'
 
 const activeTab_reducer = (state = 'all', action ) => {
     const {  type, activeTab } = action
