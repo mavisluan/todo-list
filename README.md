@@ -4,7 +4,7 @@
 - It is a todo list web app.
 
 
-# App Functionality
+## App Functionality
 
 Users will be able to 
 - add and remove todos
@@ -12,12 +12,12 @@ Users will be able to
 - check the list by all, active or completed
 
 
-# Project Screenshots
+## Project Screenshots
 
 <img src='src/icons/1.png' width='500'>
 
 
-# Installation Instructions
+## Installation Instructions
 - git clone https://github.com/mavisluan/todo-list.git
 - cd todo-list
 - yarn install
